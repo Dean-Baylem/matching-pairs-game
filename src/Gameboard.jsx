@@ -16,6 +16,51 @@ function Gameboard(props) {
 
     const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+    // Function to determine if the two chosen cards match then update the card arrays.
+    function determineMatch(cardNum) {
+      if (firstCard === cardNum) {
+        // **** Set it so that before the wait a message appears on screen highlighting the correct choice ****
+        // **** Then after the wait, reset the state so the message dissapears.
+        console.log("Match!");
+        setFoundCards((prevValue) => {
+          return [...prevValue, cardNum];
+        });
+        if (activePlayer === "p1") {
+          setp1Cards((prevValue) => {
+            return [...prevValue, cardNum];
+          });
+        } else if (activePlayer === "p2") {
+          setp2Cards((prevValue) => {
+            return [...prevValue, cardNum];
+          });
+        }
+      } else {
+        console.log("No match!");
+        if (activePlayer === "p1") {
+          setActivePlayer("p2");
+        } else {
+          setActivePlayer("p1");
+        }
+      }
+    }
+
+    // Function to reset the card clicked and revealed states after the match has been determined.
+    function resetStates() {
+      setWait(false);
+      setFirstCard("");
+      setFirstRevealed("");
+      setSecondRevealed("");
+    }
+
+    // Function to determine if the game is over and then call the endGame function from the parent App.js file.
+    function isGameOver() {
+      console.log(foundCards.length);
+      if (foundCards.length === 13) {
+        console.log("game over");
+        props.endGame(p1Cards, p2Cards);
+    }
+  }
+
     // Handles the player clicking on the card.
     function handleClick(cardNum, id) {
       // Check if first or second card clicked
@@ -29,43 +74,17 @@ function Gameboard(props) {
         // If second - set SecondRevealed to card id to display to users with delay.
         setSecondRevealed(id);
         sleep(2000).then(() => {
-          if (firstCard === cardNum) {
-            // **** Set it so that before the wait a message appears on screen highlighting the correct choice ****
-            // **** Then after the wait, reset the state so the message dissapears.
-            console.log("Match!");
-            setFoundCards((prevValue) => {
-              return [...prevValue, cardNum];
-            });
-            if (activePlayer === "p1") { 
-                setp1Cards((prevValue) => {
-                    return [...prevValue, cardNum];
-                });
-            } else if (activePlayer === "p2") {
-                setp2Cards((prevValue) => {
-                    return [...prevValue, cardNum];
-                });
-            }
-          } else {
-            console.log("No match!");
-            if (activePlayer === "p1") {
-            setActivePlayer("p2");
-            } else {
-            setActivePlayer("p1");
-            }
-          }
-          sleep(5000).then(() => {
-            console.log(foundCards.length);
-            if (foundCards.length === 14) {
-              console.log("game over");
-              props.endGame(p1Cards, p2Cards);
-            }
-          })
-          setWait(false);
-          setFirstCard("");
-          setFirstRevealed("");
-          setSecondRevealed("");
-          });
+          determineMatch(cardNum);
+          resetStates();
+          }  
+          );
       }
+      sleep(5000).then(() => {
+        console.log(foundCards);
+        console.log("Game over");
+        console.log("Card array length: " + foundCards.length);
+        isGameOver();
+      });
     }
 
     return (
