@@ -19,22 +19,31 @@ function Card(props) {
     }
 
     return (
-        <div onClick={handleClick} onMouseEnter={hightlightCard} onMouseLeave={removeHighlight} className={styling}>
-            { props.cardRevealed === true 
-            ? 
-            <div>
-                <h1>{props.cardNum}</h1>
-                <h3>{props.cardSuit}</h3>
-                <h5>{props.cardImg}</h5>
-                <h5>{props.id}</h5>
-            </div>
-            : 
-            <div>
-                <img src="images/back.png" alt="Cardback"/>
-            </div>    
-            }
-        </div>
-    )
+      <div
+        onClick={handleClick}
+        onMouseEnter={hightlightCard}
+        onMouseLeave={removeHighlight}
+        className={styling}
+      >
+        {props.cardRevealed === true ? (
+          <div>
+            <img
+              className="board-card"
+              src={"images/" + props.cardImg}
+              alt="card-face"
+            />
+          </div>
+        ) : (
+          <div>
+            <img 
+                className="board-card" 
+                src="images/back.png" 
+                alt="Cardback" 
+            />
+          </div>
+        )}
+      </div>
+    );
 }
 
 export default Card;

@@ -1,8 +1,14 @@
-.gameboard {
+.card-board {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   text-align: center;
-  margin: 5% 10%
+}
+
+.gameboard {
+  display: grid;
+  grid-template-columns: 1fr 8fr 1fr;
+  text-align: center;
+  margin: 3% 5%;
 }
 
 .highlight {
@@ -13,6 +19,10 @@
   visibility: hidden;
 }
 
-img {
+.board-card {
   width: 60%;
+}
+
+.took-card {
+  width: 40%;
 }
