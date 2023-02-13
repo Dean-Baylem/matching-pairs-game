@@ -2,6 +2,16 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   text-align: center;
+  border: 5px solid #5e1e00;
+  background-color: #006620;
+  background-image: url("https://www.transparenttextures.com/patterns/dark-matter.png");
+  /* border-image: url("https://www.transparenttextures.com/patterns/tileable-wood.png"); */
+}
+
+.player-board {
+  border: 5px solid #5e1e00;
+  background-color: #ab9d00;
+  background-image: url("https://www.transparenttextures.com/patterns/argyle.png");
 }
 
 .gameboard {
@@ -25,4 +35,9 @@
 
 .took-card {
   width: 40%;
+}
+
+.title {
+  text-align: center;
+  
 }

@@ -62,6 +62,9 @@ function App() {
 
   return (
     <div className="App">
+    <div className="title">
+      <h1>Matching Game</h1>
+    </div>
     {gameFinished && <GameOver winner={winner} gameFinished={gameFinished} startGame={startGame}/>}
       {gameStarted === true ? (
         <Gameboard endGame={endGame} cards={cards}/>
