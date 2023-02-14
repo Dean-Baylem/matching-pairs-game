@@ -3,15 +3,25 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   text-align: center;
   border: 5px solid #5e1e00;
-  background-color: #006620;
-  background-image: url("https://www.transparenttextures.com/patterns/dark-matter.png");
+  background-color: #CDE990;
+  background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
   /* border-image: url("https://www.transparenttextures.com/patterns/tileable-wood.png"); */
 }
 
-.player-board {
-  border: 5px solid #5e1e00;
-  background-color: #ab9d00;
-  background-image: url("https://www.transparenttextures.com/patterns/argyle.png");
+.player-board-left {
+  border-left: 5px solid #5e1e00;
+  border-top: 5px solid #5e1e00;
+  border-bottom: 5px solid #5e1e00;
+  background-color: #CDE990;
+  background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
+}
+
+.player-board-right {
+  border-right: 5px solid #5e1e00;
+  border-top: 5px solid #5e1e00;
+  border-bottom: 5px solid #5e1e00;
+  background-color: #CDE990;
+  background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
 }
 
 .gameboard {
@@ -31,6 +41,7 @@
 
 .board-card {
   width: 60%;
+  box-shadow: 1px 2px 1px #000000;
 }
 
 .took-card {
@@ -39,5 +50,57 @@
 
 .title {
   text-align: center;
-  
+  font-size: 4.5rem;
+  font-weight: 700;
+  margin-top: 0;
+  padding-top: 2%;
+}
+
+.took-card-group {
+  margin-top: 5%;
+}
+
+body {
+  background-color: #FFFFE8;
+  margin: 0%;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.start-animation {
+  width: 25%;
+  padding-top: 2%;
+}
+
+.start-screen {
+  justify-content: center;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 2.5rem;
+}
+
+/* CSS - got from https://getcssscan.com/css-buttons-examples*/
+.button-33 {
+  background-color: #c2fbd7;
+  border-radius: 100px;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+  color: green;
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-33:hover {
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+  transform: scale(1.05) rotate(-1deg);
 }

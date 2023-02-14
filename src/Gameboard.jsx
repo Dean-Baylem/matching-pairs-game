@@ -81,10 +81,19 @@ function Gameboard(props) {
 
   return (
     <div className="gameboard">
-      <div className="player-board">
-        <h1>Player 1 Board</h1>
-        {activePlayer === "p1" && <FontAwesomeIcon icon={faGamepad} />}
+      <div className="player-board-left">
         <div>
+          <h1>Player 1 Board</h1>
+          <FontAwesomeIcon
+            icon={faGamepad}
+            style={
+              activePlayer === "p2"
+                ? { visibility: "hidden" }
+                : { fontSize: "2rem" }
+            }
+          />
+        </div>
+        <div className="took-card-group">
           {p1Cards.map((card) => (
             <img
               className="took-card"
@@ -114,9 +123,18 @@ function Gameboard(props) {
           />
         ))}
       </div>
-      <div className="player-board">
-        <h1>Player 2 Board</h1>
-        {activePlayer === "p2" && <FontAwesomeIcon icon={faGamepad} />}
+      <div className="player-board-right">
+        <div>
+          <h1>Player 2 Board</h1>
+          <FontAwesomeIcon
+            icon={faGamepad}
+            style={
+              activePlayer === "p1"
+                ? { visibility: "hidden" }
+                : { fontSize: "2rem" }
+            }
+          />
+        </div>
         <div>
           {p2Cards.map((card) => (
             <img

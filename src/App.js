@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import Gameboard from "./Gameboard";
 import GameOver from "./Gameover";
+import StartScreen from "./StartScreen";
 
 function App() {
 
@@ -62,14 +63,14 @@ function App() {
 
   return (
     <div className="App">
-    <div className="title">
-      <h1>Matching Game</h1>
-    </div>
+    <header className="title">
+      Concentration
+    </header>
     {gameFinished && <GameOver winner={winner} gameFinished={gameFinished} startGame={startGame}/>}
       {gameStarted === true ? (
         <Gameboard endGame={endGame} cards={cards}/>
       ) : (
-        <button onClick={startGame}>Start Game</button>
+        <StartScreen startGame={startGame} />
       )}
     </div>
   );
