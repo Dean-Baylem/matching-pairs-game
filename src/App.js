@@ -10,6 +10,12 @@ function App() {
   const [gameFinished, setGameFinished] = useState(false);
   const [winner, setWinner] = useState("");
 
+  function restartGame() {
+    setGameFinished(false);
+    setCards(false);
+    setWinner("");
+    setGameStarted(false);
+  }
 
   // Functions to generate the random place of cards at the start of the game.
   function addHearts(cardArray) {
@@ -66,7 +72,7 @@ function App() {
     <header className="title">
       Concentration
     </header>
-    {gameFinished && <GameOver winner={winner} gameFinished={gameFinished} startGame={startGame}/>}
+    {gameFinished && <GameOver winner={winner} gameFinished={gameFinished} startGame={restartGame}/>}
       {gameStarted === true ? (
         <Gameboard endGame={endGame} cards={cards}/>
       ) : (
